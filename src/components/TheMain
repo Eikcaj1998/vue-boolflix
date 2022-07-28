@@ -1,0 +1,19 @@
+<template>
+    <main>
+        <FilmCard/>
+    </main>
+</template>
+<script>
+    import FilmCard from "./FilmCard.vue";
+    
+    export default {
+      components: {
+        FilmCard,
+      },
+    
+      props: ["filmListFromApi"],
+    };
+    </script>
+    
+    <style>
+    </style>
