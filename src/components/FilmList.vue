@@ -10,7 +10,6 @@
               "
               alt="language flag"
             />
-            <img v-else :src="require(`../assets/flags/rsw.png`)" alt="">
           </li>
         <li>{{filmApi.vote_average}}</li>
     </ul>
