@@ -1,9 +1,9 @@
 <template>
     <main>
         <FilmList
-        v-for="(filmApi, index) in filmApi"
-        :key="index"
-        :filmApi="filmApi"
+        v-for="singleFilmApi in filmApi"
+        :key="singleFilmApi.id"
+      :singleFilmApi="singleFilmApi"
         />
     </main>
 </template>

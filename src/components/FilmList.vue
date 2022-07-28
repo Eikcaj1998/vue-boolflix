@@ -1,17 +1,17 @@
 <template>
     <ul>
-        <li>{{filmApi.title}}</li>
-        <li>{{filmApi.original_title}}</li>
+        <li>{{singleFilmApi.title}}</li>
+        <li>{{singleFilmApi.original_title}}</li>
         <li>
             <img
-              v-if="languages.includes(filmApi.original_language)"
+              v-if="languages.includes(singleFilmApi.original_language)"
               :src="
-                require(`../assets/flags/${filmApi.original_language}.png`)
+                require(`../assets/flags/${singleFilmApi.original_language}.png`)
               "
               alt="language flag"
             />
           </li>
-        <li>{{filmApi.vote_average}}</li>
+        <li>{{singleFilmApi.vote_average}}</li>
     </ul>
 </template>
 
@@ -29,7 +29,7 @@ export default {
     };
   },
 
-    props:["filmApi"]
+    props:["singleFilmApi"]
 }
 </script>
 
