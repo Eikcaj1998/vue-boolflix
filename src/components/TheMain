@@ -1,6 +1,10 @@
 <template>
     <main>
-        <FilmList/>
+        <FilmList
+        v-for="(filmApi, index) in filmApi"
+        :key="index"
+        :filmApi="filmApi"
+        />
     </main>
 </template>
 <script>

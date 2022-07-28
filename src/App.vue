@@ -23,7 +23,7 @@ export default {
   }, 
 
   methods: {
-    getFilmFromSearchInApi(needle) {
+    getFilmApi(needle) {
       axios
         .get(`https://api.themoviedb.org/3/search/movie?api_key=ebffa79106c2c5a1ddc8cb2ad9cc1395&query=${needle}`
         )
