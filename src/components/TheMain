@@ -1,17 +1,17 @@
 <template>
     <main>
-        <FilmCard/>
+        <FilmList/>
     </main>
 </template>
 <script>
-    import FilmCard from "./FilmCard.vue";
+    import FilmList from "./FilmList.vue";
     
     export default {
       components: {
-        FilmCard,
+        FilmList,
       },
     
-      props: ["filmListFromApi"],
+      props: ["filmApi"],
     };
     </script>
     
