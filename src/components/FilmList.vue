@@ -4,9 +4,9 @@
         <li>{{filmApi.original_title}}</li>
         <li>
             <img
-              v-if="languages.includes(singleFilm.original_language)"
+              v-if="languages.includes(filmApi.original_language)"
               :src="
-                require(`../assets/flags/${singleFilm.original_language}.png`)
+                require(`../assets/flags/${filmApi.original_language}.png`)
               "
               alt="language flag"
             />
