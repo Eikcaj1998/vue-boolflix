@@ -6,7 +6,7 @@
         <img 
         :src="require(`../assets/flags/${singleTvSeries.original_language}.png`)" 
         alt="language flag"></li>
-        <li>{{singleFilmApi.vote_average}}</li>
+        <li>{{singleTvSeries.vote_average}}</li>
     </ul>
 </template>
 

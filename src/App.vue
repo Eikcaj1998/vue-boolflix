@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <TheHeader  @search="getFilmApi"/>
-    <TheMain :filmApi="filmApi"/>
+    <TheHeader  @search="getSearchResultApi"/>
+    <TheMain 
+    :filmApi="filmApi"
+    :seriesTvApi="seriesTvApi"/>
   </div>
 </template>
 
@@ -16,8 +18,10 @@ export default {
   data: function(){
     return {
       apiMovieUrl: "https://api.themoviedb.org/3/search/movie",
+      apiTvShowsUrl: "https://api.themoviedb.org/3/search/tv",
       apiKey: "ebffa79106c2c5a1ddc8cb2ad9cc1395",
       filmApi: [],
+      seriesTvApi:[],
       languageList:[],
     };
   },
@@ -28,13 +32,19 @@ export default {
   }, 
 
   methods: {
-    getFilmApi(needle) {
+    getSearchResultApi(needle) {
       axios
         .get(`${this.apiMovieUrl}?api_key=${this.apiKey}&query=${needle}`)
         .then((result) => {
           this.filmApi = result.data.results;
-          })
+          });
+      axios
+        .get(`${this.apiTvShowsUrl}?api_key=${this.apiKey}&query=${needle}`)
+        .then((result) => {
+          this.seriesTvApi = result.data.results;
+        });    
     },
+    
   },
 };
 </script>
