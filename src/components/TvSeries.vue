@@ -1,10 +1,10 @@
 <template>
     <ul>
-        <li>{{ singleTvShow.name }}</li>
-        <li>{{ singleTvShow.original_name }}</li>
+        <li>{{ singleTvSeries.name }}</li>
+        <li>{{ singleTvSeries.original_name }}</li>
         <li>
         <img 
-        :src="require(`../assets/flags/${singleTvShow.original_language}.png`)" 
+        :src="require(`../assets/flags/${singleTvSeries.original_language}.png`)" 
         alt="language flag"></li>
         <li>{{singleFilmApi.vote_average}}</li>
     </ul>
@@ -24,7 +24,7 @@ export default {
     };
   },
 
-    props:["singleFilmApi"]
+    props:["singleTvSeries"]
 }
 </script>
 
