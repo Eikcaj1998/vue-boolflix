@@ -1,9 +1,13 @@
 <template>
     <ul>
+        <li>
+         <img 
+         :src="`https://image.tmdb.org/t/p/w342${singleFilmApi.poster_path}`">
+        </li>
         <li>{{singleFilmApi.title}}</li>
         <li>{{singleFilmApi.original_title}}</li>
         <li>
-            <img
+            <img class="language"
               :src="
                 require(`../assets/flags/${singleFilmApi.original_language}.png`)
               "
@@ -24,8 +28,11 @@ export default {
         "it",
       ],
 
+      imgBaseUrl: "https://image.tmdb.org/t/p/",
+      imgSize: "w342",
 
     };
+
   },
 
     props:["singleFilmApi"]
@@ -33,5 +40,8 @@ export default {
 </script>
 
 <style>
-
+.language {
+  width: 2.5rem;
+  height: 1.5rem;
+}
 </style>
