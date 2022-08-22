@@ -1,9 +1,5 @@
 <template>
     <ul>
-        <li>
-         <img 
-         :src="`https://image.tmdb.org/t/p/w342${singleFilmApi.poster_path}`">
-        </li>
         <li>{{singleFilmApi.title}}</li>
         <li>{{singleFilmApi.original_title}}</li>
         <li>
@@ -14,11 +10,20 @@
               alt="language flag"
             />
           </li>
-        <li>{{singleFilmApi.vote_average}}</li>
+        <li>
+         <img
+         :src="cover"
+         :alt="singleFilmApi.title">
+
+        </li>
+        <li><i class="fa-solid fa-star"></i>{{singleFilmApi.vote_average}}</li>
     </ul>
 </template>
 
 <script>
+  const imgBaseUrl = "https://image.tmdb.org/t/p/";
+  const imgSize = "w342";
+  const coverPlaceholder="https://www.altavod.com/assets/images/poster-placeholder.png";
 export default {
 
      data: function () {
@@ -28,13 +33,16 @@ export default {
         "it",
       ],
 
-      imgBaseUrl: "https://image.tmdb.org/t/p/",
-      imgSize: "w342",
 
     };
 
   },
-
+    computed: {
+      cover(){
+        if(!this.singleFilmApi.poster_path) return coverPlaceholder;
+       return imgBaseUrl+imgSize+this.singleFilmApi.poster_path
+      }
+    },
     props:["singleFilmApi"]
 }
 </script>
