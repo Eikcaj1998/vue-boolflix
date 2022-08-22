@@ -1,6 +1,11 @@
 <template>
   <header>
-          <form role="search">
+    <div class="d-flex justify-content-between">
+      <h1 class="text-danger fw-bold text-uppercase mx-3 p-2">
+        Boolflix
+      </h1>
+      <div class="mx-3 mt-2 p-2">
+          <form class="d-flex" role="search">
             <input
               placeholder="Cerca Film o Serie TV"
               v-model="searchedMovie"
@@ -9,6 +14,8 @@
               Cerca
             </button>
           </form>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -20,11 +27,11 @@ export default {
     }
   },
 
-  methods:{
-    
-  }
 };
 </script>
 
-<style>
+<style lang="scss">
+header {
+  background-color: #030303;
+}
 </style>

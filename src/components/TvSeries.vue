@@ -50,9 +50,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .language {
   width: 2.5rem;
   height: 1.5rem;
+}
+.fa-star {
+  color: goldenrod;
 }
 </style>
