@@ -16,9 +16,11 @@
          :alt="singleFilmApi.title">
 
         </li>
-        <li><i v-for="n in 5" 
+        <li>
+        <FontAwesomeIcon v-for="n in 5" 
               :key="n" class="fa-star" 
-              :class=" vote >= n ? 'fa-solid' : 'fa-regular' "></i></li>
+               :icon=" renderStar(n)"/>
+        </li>
     </ul> 
 </template>
 
@@ -48,7 +50,13 @@ export default {
         return Math.ceil(this.singleFilmApi.vote_average / 2);
       },
     },
-    props:["singleFilmApi"]
+    props:["singleFilmApi"],
+    methods: {
+      renderStar(n){
+       const iconType = this.vote >= n ? ' fa-solid' : ' fa-regular';
+        return iconType + " fa-star";
+      },
+    },
 }
 </script>
 

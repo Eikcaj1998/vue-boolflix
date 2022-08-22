@@ -11,9 +11,9 @@
          :src="cover"
          :alt="singleTvSeries.title">
         </li>
-        <li><i v-for="n in 5" 
+        <li><FontAwesomeIcon v-for="n in 5" 
               :key="n"
-              :class=" renderStar(n)"></i></li>
+              :icon="renderStar(n)"/></li>
     </ul>
 </template>
 
@@ -43,8 +43,8 @@ export default {
     props:["singleTvSeries"],
     methods: {
       renderStar(n){
-       const iconType = this.vote >= n ? 'fa-solid' : 'fa-regular';
-        return iconType + "fa-star";
+       const iconType = this.vote >= n ? ' fa-solid' : ' fa-regular';
+        return iconType + " fa-star";
       },
     },
 }
