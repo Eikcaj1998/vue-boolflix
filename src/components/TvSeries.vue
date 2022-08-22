@@ -11,7 +11,9 @@
          :src="cover"
          :alt="singleTvSeries.title">
         </li>
-        <li>{{singleTvSeries.vote_average}}</li>
+        <li><i v-for="n in 5" 
+              :key="n"
+              :class=" renderStar(n)"></i></li>
     </ul>
 </template>
 
@@ -33,9 +35,18 @@ export default {
       cover(){
         if(!this.singleTvSeries.poster_path) return coverPlaceholder;
        return imgBaseUrl+imgSize+this.singleTvSeries.poster_path
-      }
+      },
+      vote(){
+        return Math.ceil(this.singleTvSeries.vote_average / 2);
+      },
     },
-    props:["singleTvSeries"]
+    props:["singleTvSeries"],
+    methods: {
+      renderStar(n){
+       const iconType = this.vote >= n ? 'fa-solid' : 'fa-regular';
+        return iconType + "fa-star";
+      },
+    },
 }
 </script>
 
