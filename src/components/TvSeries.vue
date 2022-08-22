@@ -1,40 +1,60 @@
 <template>
-    <ul>
-        <li>{{ singleTvSeries.name }}</li>
-        <li>{{ singleTvSeries.original_name }}</li>
-        <li>
-        <img class="language"
-        :src="require(`../assets/flags/${singleTvSeries.original_language}.png`)" 
-        alt="language flag"></li>
-        <li>
-        <img
+  <div
+    class="card"
+      @mouseover="isMouseover = true"
+      @mouseleave="isMouseover = false">
+         <img
+         class="img-fluid"
          :src="cover"
          :alt="singleTvSeries.title">
+         
+    <ul v-show="isMouseover === true">
+        <li class="text-light fw-bold"> Titolo: {{singleTvSeries.title}}</li>
+        <li class="text-light fw-bold">Titolo originale: {{singleTvSeries.original_title}}</li>
+        <li class="text-light fw-bold">
+          Lingua:
+            <img class="language"
+              :src="
+                require(`../assets/flags/${singleTvSeries.original_language}.png`)
+              "
+              alt="language flag"
+            />
         </li>
-        <li><FontAwesomeIcon v-for="n in 5" 
-              :key="n"
-              :icon="renderStar(n)"/></li>
-    </ul>
+        <li class="text-light fw-bold"> 
+        Voto:
+        <FontAwesomeIcon v-for="n in 5" 
+              :key="n" class="fa-star" 
+               :icon=" renderStar(n)"/>
+        </li>
+        <li>
+        <span class="fw-normal text-light overflow py-2" >Overview: {{ singleTvSeries.overview }}</span>
+      </li>
+    </ul> 
+  </div>
 </template>
 
 <script>
-const imgBaseUrl = "https://image.tmdb.org/t/p/";
-const imgSize = "w342";
-const coverPlaceholder="https://www.altavod.com/assets/images/poster-placeholder.png";
+  const imgBaseUrl = "https://image.tmdb.org/t/p/";
+  const imgSize = "w342";
+  const coverPlaceholder="https://www.altavod.com/assets/images/poster-placeholder.png";
 export default {
 
      data: function () {
     return {
-        languages: [
+      isMouseover: false,
+      languages: [
         "en",
         "it",
       ],
+
+
     };
+
   },
-  computed: {
+    computed: {
       cover(){
         if(!this.singleTvSeries.poster_path) return coverPlaceholder;
-       return imgBaseUrl+imgSize+this.singleTvSeries.poster_path
+       return imgBaseUrl+imgSize+this.singleTvSeries.poster_path;
       },
       vote(){
         return Math.ceil(this.singleTvSeries.vote_average / 2);
@@ -57,5 +77,19 @@ export default {
 }
 .fa-star {
   color: goldenrod;
+}
+.card {
+  cursor: pointer;
+}
+ul{
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: #030303;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
 }
 </style>

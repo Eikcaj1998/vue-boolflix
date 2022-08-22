@@ -1,27 +1,36 @@
 <template>
-    <ul>
-        <li>{{singleFilmApi.title}}</li>
-        <li>{{singleFilmApi.original_title}}</li>
-        <li>
+  <div
+    class="card"
+      @mouseover="isMouseover = true"
+      @mouseleave="isMouseover = false">
+         <img
+         class="img-fluid"
+         :src="cover"
+         :alt="singleFilmApi.title">
+         
+    <ul v-show="isMouseover === true">
+        <li class="text-light fw-bold"> Titolo: {{singleFilmApi.title}}</li>
+        <li class="text-light fw-bold">Titolo originale: {{singleFilmApi.original_title}}</li>
+        <li class="text-light fw-bold">
+          Lingua:
             <img class="language"
               :src="
                 require(`../assets/flags/${singleFilmApi.original_language}.png`)
               "
               alt="language flag"
             />
-          </li>
-        <li>
-         <img
-         :src="cover"
-         :alt="singleFilmApi.title">
-
         </li>
-        <li>
+        <li class="text-light fw-bold"> 
+        Voto:
         <FontAwesomeIcon v-for="n in 5" 
               :key="n" class="fa-star" 
                :icon=" renderStar(n)"/>
         </li>
+        <li>
+        <span class="fw-normal text-light overflow py-2" >Overview: {{ singleFilmApi.overview }}</span>
+      </li>
     </ul> 
+  </div>
 </template>
 
 <script>
@@ -32,6 +41,7 @@ export default {
 
      data: function () {
     return {
+      isMouseover: false,
       languages: [
         "en",
         "it",
@@ -67,5 +77,19 @@ export default {
 }
 .fa-star {
   color: goldenrod;
+}
+.card {
+  cursor: pointer;
+}
+ul{
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: #030303;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
 }
 </style>
