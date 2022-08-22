@@ -16,7 +16,7 @@
          :alt="singleFilmApi.title">
 
         </li>
-        <li><i class="fa-solid fa-star"></i>{{singleFilmApi.vote_average}}</li>
+        <li><i class="fa-solid fa-star"></i>{{vote}}</li>
     </ul>
 </template>
 
@@ -40,8 +40,11 @@ export default {
     computed: {
       cover(){
         if(!this.singleFilmApi.poster_path) return coverPlaceholder;
-       return imgBaseUrl+imgSize+this.singleFilmApi.poster_path
-      }
+       return imgBaseUrl+imgSize+this.singleFilmApi.poster_path;
+      },
+      vote(){
+        return Math.ceil(this.singleFilmApi.vote_average / 2);
+      },
     },
     props:["singleFilmApi"]
 }

@@ -27,10 +27,6 @@ export default {
         "en",
         "it",
       ],
-
-        imgBaseUrl: "https://image.tmdb.org/t/p/",
-        imgSize: "w342",
-
     };
   },
   computed: {
