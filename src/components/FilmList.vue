@@ -16,8 +16,10 @@
          :alt="singleFilmApi.title">
 
         </li>
-        <li><i class="fa-solid fa-star"></i>{{vote}}</li>
-    </ul>
+        <li><i v-for="n in 5" 
+              :key="n" class="fa-star" 
+              :class=" vote >= n ? 'fa-solid' : 'fa-regular' "></i></li>
+    </ul> 
 </template>
 
 <script>
