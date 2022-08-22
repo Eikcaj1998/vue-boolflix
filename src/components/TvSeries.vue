@@ -1,6 +1,7 @@
 <template>
-  <div
-    class="card"
+<div>
+    <h1 class="text-light fw-bold text-center mt-3">Films</h1>
+  <div class="card"
       @mouseover="isMouseover = true"
       @mouseleave="isMouseover = false">
          <img
@@ -30,6 +31,7 @@
         <span class="fw-normal text-light overflow py-2" >Overview: {{ singleTvSeries.overview }}</span>
       </li>
     </ul> 
+  </div>
   </div>
 </template>
 

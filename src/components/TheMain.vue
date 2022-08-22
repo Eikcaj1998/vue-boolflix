@@ -2,7 +2,6 @@
     <main>
       <div class="container-fluid">
         <div class="row">
-          <h1 class="text-light fw-bold text-center mt-3">Films</h1>
           <div class="d-flex flex-wrap justify-content-between">
           <FilmList
           class="m-4 film-list"
@@ -12,9 +11,7 @@
           />
           </div>
         </div>
-      <hr class="text-light mt-5">
         <div class="row">
-          <h1 class="text-light fw-bold text-center mt-3">Series</h1>
           <div class="d-flex flex-wrap justify-content-between">
             <TvSeries
             class="m-4 tv-series"
@@ -47,13 +44,10 @@ ul {
   list-style: none;
 }
 
-main {
-  background-color: #1b1b1b;
-}
 
 .film-list,
 .tv-series {
-  width: calc((100% / 4) - 4rem);
+  width: 300px;
 }
 
 
